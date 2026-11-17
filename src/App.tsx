@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { SAY_CHANCE, SAYINGS, type PageId } from './content'
 import { THEMES, prefersReducedMotion, type ThemeName } from './theme'
 import { cancelWipe, ditherWipe, hide } from './lib/ditherWipe'
 import { themeSwap } from './lib/themeSwap'
-import { preload } from './lib/preload'
 import { Grain } from './components/Grain'
 import { Nav } from './components/Nav'
 import { Skull, type SkullHandle } from './components/Skull'
@@ -27,9 +26,6 @@ export default function App() {
   const pageRef = useRef(page)
   pageRef.current = page
   const settleT = useRef<number>(undefined)
-
-  // Warm both skulls so the first theme swap never waits on the network.
-  useEffect(() => { void preload(THEMES.dark.skull); void preload(THEMES.light.skull) }, [])
 
   // Whatever happened mid-swap, make sure the current page ends up fully shown and the rest hidden.
   const settle = useCallback(() => {
@@ -79,10 +75,7 @@ export default function App() {
 
   const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
     const next: ThemeName = themeName === 'dark' ? 'light' : 'dark'
-    themeSwap(e.currentTarget.getBoundingClientRect(), async () => {
-      await preload(THEMES[next].skull) // don't snapshot until the other skull is decoded
-      flushSync(() => setThemeName(next))
-    })
+    themeSwap(e.currentTarget.getBoundingClientRect(), async () => flushSync(() => setThemeName(next)))
   }
 
   const vis = (id: PageId) => (id === page || id === swapFrom ? 'visible' : 'hidden')

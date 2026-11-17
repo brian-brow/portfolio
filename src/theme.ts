@@ -14,11 +14,11 @@ export interface Theme {
 export const THEMES: Record<ThemeName, Theme> = {
   dark: {
     bg: '#161a13', zone: '#0f120d', text: '#c3cbbb', name: '#dfe6d6', muted: '#8f9988',
-    skull: '/skull-dark.png', embers: ['#dfe6d6', '#c3cbbb', '#7e8b72'],
+    skull: '#7e8b72', embers: ['#dfe6d6', '#c3cbbb', '#7e8b72'],
   },
   light: {
     bg: '#7e8b72', zone: '#728066', text: '#161a13', name: '#161a13', muted: '#161a13',
-    skull: '/skull-light.png', embers: ['#161a13', '#3a4232', '#5c6752'],
+    skull: '#161a13', embers: ['#161a13', '#3a4232', '#5c6752'],
   },
 }
 

@@ -81,7 +81,7 @@ button { font: inherit; color: inherit; }
 
 /* ---- Skull ---- */
 .skull { flex: 1 1 480px; position: relative; z-index: 1; height: 100vh; overflow: hidden; }
-.skull img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; display: block; }
+.skull-art { height: 100%; mask: url(/skull.png) center / cover no-repeat; image-rendering: pixelated; }
 .skull canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .speech { position: absolute; left: 78%; top: 26%; width: 22%; height: 40%; pointer-events: none; }
 .speech div { position: absolute; left: 21.8%; top: calc(2.85% - 2px); right: 1%; font-size: 19px; line-height: 1.25; }

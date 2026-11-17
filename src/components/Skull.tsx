@@ -102,7 +102,7 @@ export const Skull = forwardRef<SkullHandle, { theme: Theme }>(function Skull({ 
 
   return (
     <div className="skull">
-      <img src={theme.skull} alt="Dithered Vincent van Gogh painting, Head of a Skeleton with a Burning Cigarette" />
+      <div className="skull-art" role="img" aria-label="Dithered Vincent van Gogh painting, Head of a Skeleton with a Burning Cigarette" style={{ background: theme.skull }} />
       <canvas ref={canvasRef} aria-hidden="true" />
       <div className="speech" ref={speechRef} aria-hidden="true" style={{ clipPath: "path('M0 0')" }}>
         <div style={{ color: theme.name }}>{said}</div>
