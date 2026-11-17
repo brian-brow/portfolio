@@ -3,13 +3,13 @@
 export type PageId = 'home' | 'projects' | 'experience' | 'playground' | 'writing' | 'post'
 export const NAV: Exclude<PageId, 'post'>[] = ['home', 'projects', 'experience', 'playground', 'writing']
 
-export const EMAIL = 'brianbrown13378@gmail.com'
+export const EMAIL = 'brianbrown.bjb@gmail.com'
 
 export const SOCIALS = {
-  x: '#', // TODO: your X handle
+  x: 'https://x.com/BrianBrown78',
   github: 'https://github.com/brian-brow',
   linkedin: 'https://www.linkedin.com/in/brian-brown-5a7aa2298/',
-  youtube: '#', // TODO: your YouTube channel
+  youtube: 'https://www.youtube.com/@Brian-dm2wy',
 }
 
 export interface Entry { name: string; href?: string; desc: string; meta: string }
