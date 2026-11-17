@@ -1,7 +1,7 @@
 // All of the site's copy lives here.
 
 export type PageId = 'home' | 'projects' | 'experience' | 'playground' | 'writing' | 'post'
-export const NAV: Exclude<PageId, 'post'>[] = ['home', 'projects', 'experience', 'playground', 'writing']
+export const NAV: Exclude<PageId, 'post'>[] = ['home', 'projects', 'experience', 'playground']
 
 export const EMAIL = 'brianbrown.bjb@gmail.com'
 
