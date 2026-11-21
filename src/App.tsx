@@ -4,7 +4,7 @@ import { SAY_CHANCE, SAYINGS, type PageId } from './content'
 import { THEMES, prefersReducedMotion, type ThemeName } from './theme'
 import { cancelWipe, ditherWipe, hide } from './lib/ditherWipe'
 import { themeSwap } from './lib/themeSwap'
-import { Grain } from './components/Grain'
+import { preload } from './lib/preload'
 import { Nav } from './components/Nav'
 import { Skull, type SkullHandle } from './components/Skull'
 import { SandZone } from './components/SandZone'
@@ -90,8 +90,8 @@ export default function App() {
       className="site"
       style={{ '--bg': theme.bg, '--text': theme.text, '--name': theme.name, '--muted': theme.muted } as React.CSSProperties}
     >
+      <Nav page={page} light={themeName === 'light'} onPick={pick} onToggle={toggleTheme} />
       <main className="text-side">
-        <Nav page={page} light={themeName === 'light'} onPick={pick} onToggle={toggleTheme} />
         <div className="pages">
           <div className="page" {...pageProps('home')}><Home /></div>
           <div className="page" {...pageProps('projects')}><Projects /></div>
@@ -106,7 +106,6 @@ export default function App() {
         </div>
       </main>
       <Skull ref={skull} theme={theme} />
-      <Grain />
     </div>
   )
 }
